@@ -1,0 +1,10 @@
+site_name: NCAR HPC Documentation
+
+theme:
+  name: readthedocs
+  highlightjs: true
+
+nav:
+  - Home : index.md
+  - About : about.md
+

@@ -1,0 +1,16 @@
+site_name: NCAR HPC Documentation
+
+theme:
+  name: material
+  palette:
+    primary: blue
+
+  highlightjs: true
+  #logo : assets/images/ncar_cisl.png
+  #logo : https://upload.wikimedia.org/wikipedia/fr/4/42/National_Center_for_Atmospheric_Research_logo%2C_ncar-logo-lg.png
+  logo : https://arc.ucar.edu/assets/NCAR_CISL_logo_no_text-719d5fa40f0d6ed10edd1ce499a1cae632b17fc4126d9a6be748cf740bcf5d1c.png
+
+nav:
+  - Home : index.md
+  - About : about.md
+
