@@ -16,6 +16,30 @@ Don't find what you need? Log in here to submit a help request: NCAR Research Co
 You need a CIT password to submit a request. Call 303-497-2400 if you don't have one.
 
 
+## Other NERSC web pages
+
+* [NERSC Home page](https://nersc.gov) - NERSC news and information
+* [MOTD](https://www.nersc.gov/live-status/motd/) - Live status of NERSC services
+* [MyNERSC](https://my.nersc.gov) - Interactive content
+* [Help Portal](https://help.nersc.gov) - Open support tickets, make resource requests
+* [JupyterHub](https://jupyter.nersc.gov) - Access NERSC with interactive notebooks and more
+* [Iris](https://iris.nersc.gov) - NERSC account management
+
+!!! tip
+    The [NERSC Users Group (NUG)](https://www.nersc.gov/users/NUG/) is an
+    independent organization of users of NERSC resources.
+
+    All users are welcome to [join the NUG Slack
+    workspace](https://www.nersc.gov/users/NUG/nersc-users-slack/).
+
+!!! info "NERSC welcomes your contributions"
+    This project is hosted on [GitLab](https://gitlab.com/NERSC/nersc.gitlab.io) and your
+    [contributions](https://gitlab.com/NERSC/nersc.gitlab.io/blob/main/CONTRIBUTING.md)
+    are welcome!
+
+
+
+
 ## Project layout
 
     mkdocs.yml    # The configuration file.
