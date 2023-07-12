@@ -1,16 +1,84 @@
+#--content Project Information
 site_name: NCAR HPC Documentation
+site_description: NCAR HPC Docs website (Proof of Concept)
+repo_url: https://github.com/negin513/hpc-docs-demo
+site_url: https://negin513.github.io/hpc-docs-demo/
+site_author: CISL
+edit_uri: blob/main/docs/
+
+#-- content
+nav:
+  - Home : index.md
+  - About : about.md
+  - Derecho: derecho/derecho.md
+  - Getting Started: index.md
+  - Install: install.md
+  - Full Example: example.md
+
+# -- configurations
+
 
 theme:
   name: material
+  logo : https://arc.ucar.edu/assets/NCAR_CISL_logo_no_text-719d5fa40f0d6ed10edd1ce499a1cae632b17fc4126d9a6be748cf740bcf5d1c.png
+  favicon : https://arc.ucar.edu/assets/NCAR_CISL_logo_no_text-719d5fa40f0d6ed10edd1ce499a1cae632b17fc4126d9a6be748cf740bcf5d1c.png
   palette:
     primary: blue
 
   highlightjs: true
   #logo : assets/images/ncar_cisl.png
   #logo : https://upload.wikimedia.org/wikipedia/fr/4/42/National_Center_for_Atmospheric_Research_logo%2C_ncar-logo-lg.png
-  logo : https://arc.ucar.edu/assets/NCAR_CISL_logo_no_text-719d5fa40f0d6ed10edd1ce499a1cae632b17fc4126d9a6be748cf740bcf5d1c.png
 
-nav:
-  - Home : index.md
-  - About : about.md
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+extra_css:
+  - stylesheets/extra.css
+
+copyright: '<font color=#666>Content is available under </font><a href="https://creativecommons.org/licenses/by/2.5/" title="Attribution2.5">Attribution2.5</a> <font color=#666>unless otherwise noted.</font>'
+
+markdown_extensions:
+  - meta
+  - attr_list
+  - footnotes
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols:
+      fractions: false
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.snippets
+
+plugins:
+  - search:
+      prebuild_index: false
+  - minify:
+      minify_html: true
+
+
+extra:
+  social:
+    - icon: material/home-circle
+      link: https://arc.ucar.edu/
+    - icon: material/help-circle
+      link: https://ithelp.ucar.edu/plugins/servlet/desk/site/rc
+    - icon: fontawesome/brands/github
+      link: https://github.com/NCAR
+    - icon: fontawesome/brands/slack
+      link: https://join.slack.com/t/ncarhpcusergroup/shared_invite/zt-1z00napom-SU0X8CzJWVY90C2GzRvUCg
 
