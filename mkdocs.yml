@@ -9,11 +9,13 @@ edit_uri: blob/main/docs/
 #-- content
 nav:
   - Home : index.md
-  - About : about.md
-  - Derecho: derecho/derecho.md
-  - Getting Started: index.md
-  - Install: install.md
+  - Getting Started: getting-started.md
+  - Allocations:
+	- allocations/allocations.md
+	- NCAR Allocations: allocations/ncar-allocations.md
+	- University Allocations: allocations/university-allocations.md
   - Full Example: example.md
+  - About : about.md
 
 # -- configurations
 
