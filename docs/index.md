@@ -1,4 +1,4 @@
-# User documentation for NCAR high-performance computing
+# User Documentation for NCAR High Performance Computing
 
 This is the home of user documentation for the NCAR high-performance computing (HPC) and storage resources that CISL manages.
 
