@@ -68,7 +68,7 @@ theme:
   
   palette:
     - scheme: cisl_default
-      primary: blue 
+      primary: red 
       accent: indigo
       toggle:
         icon: material/toggle-switch-off-outline 
