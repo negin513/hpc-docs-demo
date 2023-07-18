@@ -1,4 +1,4 @@
-# hpc-docs-demo
+# Demo of NCAR HPC Docs using `mkdown` 
 
 To view the built version is deployed [here](https://negin513.github.io/hpc-docs-demo/). 
 
