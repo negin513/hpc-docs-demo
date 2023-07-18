@@ -1,2 +1,3 @@
 mkdocs-material
-git-revision-date-localized
+mkdocs-git-revision-date-plugin 
+mkdocs-git-revision-date-localized-plugin
