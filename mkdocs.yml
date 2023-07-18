@@ -6,51 +6,96 @@ site_url: https://negin513.github.io/hpc-docs-demo/
 site_author: CISL
 edit_uri: blob/main/docs/
 
+# ------------------------------------
 #-- content
 nav:
   - Home : index.md
-  - Getting Started: getting-started.md
+  - Getting Started: 
+    - getting-started.md
+    - Environment Modules: general/environment-modules.md
+    - Starting and Managing Jobs with PBS: general/managing-jobs.md
   - Allocations:
      - allocations/allocations.md
      - NCAR Allocations: allocations/ncar-allocations.md
      - University Allocations: allocations/university-allocations.md
+  - User Support: 
+    - user-support.md
   - Full Example: example.md
   - About : about.md
 
+# ------------------------------------
 # -- configurations
 
 
 theme:
   name: material
   custom_dir: theme
-  logo: assets/images/ncar_cisl.png
-  logo : https://arc.ucar.edu/assets/NCAR_CISL_logo_no_text-719d5fa40f0d6ed10edd1ce499a1cae632b17fc4126d9a6be748cf740bcf5d1c.png
-  favicon : https://arc.ucar.edu/assets/NCAR_CISL_logo_no_text-719d5fa40f0d6ed10edd1ce499a1cae632b17fc4126d9a6be748cf740bcf5d1c.png
-  primary: blue 
+
+  # -- additional features
+  features:
+    - search.suggest
+    - search.highlight
+    - content.tabs.link       # all content tabs across the docs will be linked
+    - content.code.annotation # add anotations (advanced)
+    - content.code.annotate 
+    - content.code.copy       
+    - content.action.edit     # edit the page
+    - content.action.view     # view the source page
+    - content.tooltips        # Adding tooltip for hovering over links
+
+    # - header.autohide
+    - navigation.expand
+    - navigation.footer
+    # - navigation.indexes
+    # - navigation.instant
+    # - navigation.prune
+    # - navigation.sections
+    # - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    #- toc.integrate
+    
+  #logo: assets/images/ncar_cisl.png
+  #logo : https://arc.ucar.edu/assets/NCAR_CISL_logo_no_text-719d5fa40f0d6ed10edd1ce499a1cae632b17fc4126d9a6be748cf740bcf5d1c.png
+  logo : assets/images/CISL-contemp-logo-white-square.png
+  #logo: https://raw.githubusercontent.com/negin513/hpc-docs-demo/main/assets/images/CISL-contemp-logo-blue-square.png
+  favicon : https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://arc.ucar.edu/knowledge_base/83853599
+  
   palette:
-    - scheme: default
+    - scheme: cisl_default
       primary: blue 
-      accent: blue
+      accent: indigo
       toggle:
-        icon: material/brightness-7
+        icon: material/toggle-switch-off-outline 
         name: Switch to dark mode
     - scheme: slate
-      primary: blue
-      accent: blue
+      primary: idigo
+      accent: white
       toggle:
-        icon: material/brightness-4
+        icon: material/toggle-switch
         name: Switch to light mode
 
-  highlightjs: true
-  #logo : assets/images/ncar_cisl.png
-  #logo : https://upload.wikimedia.org/wikipedia/fr/4/42/National_Center_for_Atmospheric_Research_logo%2C_ncar-logo-lg.png
+  font: 
+        text: Google Sans
+        code: Regular
 
-extra_javascript:
-  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+  highlightjs: true
+
+
 extra_css:
   - stylesheets/extra.css
 
-copyright: '<font color=#666>Content is available under </font><a href="https://creativecommons.org/licenses/by/2.5/" title="Attribution2.5">Attribution2.5</a> <font color=#666>unless otherwise noted.</font>'
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+
+#copyright: '<font color=#666>Content is available under </font><a href="https://creativecommons.org/licenses/by/2.5/" title="Attribution2.5">Attribution2.5</a> <font color=#666>unless otherwise noted.</font>'
+copyright: "&copy; 2023 UCAR"
+
 
 markdown_extensions:
   - meta
@@ -115,6 +160,10 @@ markdown_extensions:
 plugins:
   - search:
       prebuild_index: false
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
   - minify:
       minify_html: true
 
@@ -129,4 +178,3 @@ extra:
       link: https://github.com/NCAR
     - icon: fontawesome/brands/slack
       link: https://join.slack.com/t/ncarhpcusergroup/shared_invite/zt-1z00napom-SU0X8CzJWVY90C2GzRvUCg
-
