@@ -15,9 +15,20 @@ nav:
     - Environment Modules: general/environment-modules.md
     - Starting and Managing Jobs with PBS: general/managing-jobs.md
   - Allocations:
-     - allocations/allocations.md
+     - allocations/index.md
      - NCAR Allocations: allocations/ncar-allocations.md
      - University Allocations: allocations/university-allocations.md
+  - Casper:
+     - casper/casper.md
+  - Cheyenne:
+     - cheyenne/index.md
+     - Quick Start on Cheyenne: cheyenne/Quick+start+on+Cheyenne.md
+     - Cheyenne Use Policies: cheyenne/Cheyenne+use+policies.md
+     - Starting Cheyenne Jobs:
+       - Job-submission Queues and Charges: cheyenne/starting-cheyenne-jobs/Job-submission+queues+and+charges.md
+       - Managing and monitoring PBS jobs: cheyenne/starting-cheyenne-jobs/Managing+and+monitoring+PBS+jobs.md
+
+     
   - User Support: 
     - user-support.md
   - Full Example: example.md
@@ -44,21 +55,24 @@ theme:
     - content.tooltips        # Adding tooltip for hovering over links
 
     # - header.autohide
-    - navigation.expand
+    # - navigation.expand
     - navigation.footer
     - navigation.indexes
+    - navigation.top          # back to top button
+    - navigation.path         # adding path to the top
     # - navigation.instant
     # - navigation.prune
     # - navigation.sections
     # - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.top
-    - navigation.tracking
+    # - navigation.tabs.sticky
+    # - navigation.top
+    - navigation.tracking # -- When anchor tracking is enabled, the URL in the address bar is automatically updated with the active anchor as highlighted.
+    # - navigation.sections # -- When sections are enabled, top-level sections are rendered as groups in the sidebar for viewports above 1220px, but remain as-is on mobile. 
     - search.highlight
     - search.share
     - search.suggest
-    - toc.follow
-    #- toc.integrate
+    # - toc.follow
+    #- toc.integrate   # one toc on left only
     
   #logo: assets/images/ncar_cisl.png
   #logo : https://arc.ucar.edu/assets/NCAR_CISL_logo_no_text-719d5fa40f0d6ed10edd1ce499a1cae632b17fc4126d9a6be748cf740bcf5d1c.png
