@@ -6,6 +6,7 @@ This is the home of user documentation for the NCAR high-performance computing (
 
 The knowledge base includes searchable information specific to HPC resources, storage systems, authentication procedures and others, as well as additional how-to articles and troubleshooting articles.
 
+#![Derecho](https://kb.ucar.edu/download/attachments/embedded-page/RC/User%20documentation%20for%20NCAR%20high-performance%20computing/derecho_logo1600X560.png?api=v2 width="150")
 
 # Selected Links
 
@@ -14,7 +15,8 @@ The knowledge base includes searchable information specific to HPC resources, st
 * [Cheyenne](https://arc.ucar.edu/knowledge_base/70549542)
 
 Don't find what you need? Log in here to submit a help request: [NCAR Research Computing](https://rchelp.ucar.edu/)
-You need a CIT password to submit a request. Call 303-497-2400 if you don't have one.
+
+You need a CIT password to submit a request. Call **303-497-2400** if you don't have one.
 
 
 ## Other CISL web pages
@@ -34,12 +36,5 @@ You need a CIT password to submit a request. Call 303-497-2400 if you don't have
     [contributions](https://gitlab.com/NERSC/nersc.gitlab.io/blob/main/CONTRIBUTING.md)
     are welcome!
 
-
-
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+---
+This page is just a copy of https://arc.ucar.edu/knowledge_base_documentation in `mkdown` for demonstrations purposes. 
