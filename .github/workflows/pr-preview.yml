@@ -1,21 +1,8 @@
 name: preview-comment
 
 on:
-  workflow_call:
-    inputs:
-      pull_request_number:
-        description: 'Number of the Pull Request event that needs commenting'
-        required: true
-        type: string
-      sha:
-        description: 'SHA of the commit associated with this Pull Request'
-        required: true
-        type: string
-      site_name: 
-        description: 'Name of the website in comment'
-        required: false
-        default: "The Cookbook"
-        type: string
+  pull_request:
+    types: [opened]
 
 jobs:
   comment:
