@@ -1,82 +1,52 @@
-name: preview-comment
+name: preview
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
 
 jobs:
-  comment:
+  deploy-preview:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash -l {0}
     steps:
       - uses: actions/checkout@v3
-      - name: Fetch Repo Name
-        id: repo-name
-        run: echo "value=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_OUTPUT  # just the repo name, not owner
 
-      - name: Set message value
-        run: |
-          echo "comment_message=👋 Thanks for opening this PR! ${{ inputs.site_name }} will be automatically built with [GitHub Actions](https://github.com/features/actions). To see the status of your deployment, click below." >> $GITHUB_ENV
-
-      - name: Find preview comment
-        uses: peter-evans/find-comment@v2
-        id: fc
+      - uses: actions/setup-python@v4
         with:
-          issue-number: '${{ inputs.pull_request_number }}'
-          comment-author: 'github-actions[bot]'
-          body-includes: '${{ env.comment_message }}'
+          python-version: 3.x
 
-      - name: Create preview comment
-        if: |
-          github.event.workflow_run.conclusion != 'success'
-          && steps.fc.outputs.comment-id == ''
-        uses: peter-evans/create-or-update-comment@v3
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+
+      - uses: actions/cache@v3
         with:
-          issue-number: ${{ inputs.pull_request_number }}
-          body: |
-            ${{ env.comment_message }}
-            🔍 Git commit SHA: ${{ inputs.sha }}
-            ✅ Deployment Preview URL: In Progress
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
 
-      - name: Update preview comment
-        if: |
-          github.event.workflow_run.conclusion != 'success'
-          && steps.fc.outputs.comment-id != ''
-        uses: peter-evans/create-or-update-comment@v3
+      - run: pip install -r requirements.txt 
+
+      - run: mkdocs build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          comment-id: ${{ steps.fc.outputs.comment-id }}
-          edit-mode: replace
-          body: |
-            ${{ env.comment_message }}
-            🔍 Git commit SHA: ${{ inputs.sha }}
-            ✅ Deployment Preview URL: In Progress
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: preview-${{ github.event.pull_request.number }}
 
-      - name: Set preview URL
-        if: |
-          github.event.workflow_run.conclusion == 'success'
-          && steps.fc.outputs.comment-id != ''
-        id: preview-url
-        run: |
-          shopt -s nocasematch
-          if [[ ${{ steps.repo-name.outputs.value }} = ${{ github.repository_owner }}.github.io ]]
-          then
-            echo "url=https://${{ steps.repo-name.outputs.value }}/_preview/${{ inputs.pull_request_number }}" >> $GITHUB_OUTPUT
-          else
-            echo "url=https://${{ github.repository_owner }}.github.io/${{ steps.repo-name.outputs.value }}/_preview/${{ inputs.pull_request_number }}" >> $GITHUB_OUTPUT
-          fi
-          shopt -u nocasematch
-
-      - name: Finalize preview comment
-        if: |
-          github.event.workflow_run.conclusion == 'success'
-          && steps.fc.outputs.comment-id != ''
-        uses: peter-evans/create-or-update-comment@v3
+      - name: Comment PR
+        uses: actions/github-script@v3
         with:
-          comment-id: ${{ steps.fc.outputs.comment-id }}
-          edit-mode: replace
-          body: |
-            ${{ env.comment_message }}
-            🔍 Git commit SHA: ${{ inputs.sha }}
-            ✅ Deployment Preview URL: ${{ steps.preview-url.outputs.url }}
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const issue_number = context.issue.number;
+            const repo = context.repo;
+            const url = `https://${repo.owner}.github.io/${repo.repo}/preview-${issue_number}`;
+            github.issues.createComment({
+              ...context.repo,
+              issue_number: context.issue.number,
+              body: `Preview URL: ${url}`
+            });
