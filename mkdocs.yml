@@ -14,12 +14,9 @@ nav:
     - getting-started.md
     - Environment Modules: general/environment-modules.md
     - Starting and Managing Jobs with PBS: general/managing-jobs.md
-  - Allocations:
-     - allocations/index.md
-     - NCAR Allocations: allocations/ncar-allocations.md
-     - University Allocations: allocations/university-allocations.md
   - Casper:
-     - casper/casper.md
+     - casper/index.md
+     - Compiling GPU Code on Casper Nodes: casper/Compiling+GPU+code+on+Casper+nodes.md
   - Cheyenne:
      - cheyenne/index.md
      - Quick Start on Cheyenne: cheyenne/Quick+start+on+Cheyenne.md
@@ -27,12 +24,21 @@ nav:
      - Starting Cheyenne Jobs:
        - Job-submission Queues and Charges: cheyenne/starting-cheyenne-jobs/Job-submission+queues+and+charges.md
        - Managing and monitoring PBS jobs: cheyenne/starting-cheyenne-jobs/Managing+and+monitoring+PBS+jobs.md
-
+       - Cheyenne Job Script Examples: 
+          - cheyenne/starting-cheyenne-jobs/cheyenne-job-script-examples/index.md
+  - Derecho: 
+      - derecho/index.md
+      - Batch job script examples - Derecho : derecho/Batch+job+script+examples-Derecho.md
+  - Allocations:
+     - allocations/index.md
+     - NCAR Allocations: 
+        - allocations/ncar_allocations/index.md
+     - University Allocations: allocations/university-allocations.md
      
   - User Support: 
     - user-support.md
   - Full Example: example.md
-  - About : about.md
+  - About : contributing.md
 
 # ------------------------------------
 # -- configurations
