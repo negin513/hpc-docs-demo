@@ -10,9 +10,11 @@ Applications are reviewed and time is allocated according to the needs of the pr
 
 ## Page contents
 
-1. [University allocation opportunities](#university-allocation-opportunities)
-2. [Wyoming-NCAR Alliance](#wyoming-ncar-alliance)
-3. [NCAR lab allocation opportunities](#ncar-lab-allocation-opportunities)
+- [Allocations](#allocations)
+	- [Page contents](#page-contents)
+	- [University allocation opportunities](#university-allocation-opportunities)
+	- [Wyoming-NCAR Alliance](#wyoming-ncar-alliance)
+	- [NCAR lab allocation opportunities](#ncar-lab-allocation-opportunities)
 
 ## University allocation opportunities
 

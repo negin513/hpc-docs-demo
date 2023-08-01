@@ -37,7 +37,11 @@ nav:
      
   - User Support: 
     - user-support.md
-  - Full Example: example.md
+  - NCAR User Group: 
+    - nhug/index.md
+    - nhug/upcoming-events.md
+  - FAQ: 
+    - esds/faq.md
   - About : contributing.md
 
 # ------------------------------------
