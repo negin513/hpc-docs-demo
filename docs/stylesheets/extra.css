@@ -3,7 +3,16 @@
     height: 50px !important;
 }
 [data-md-color-scheme="cisl_default"] {
-  --md-primary-fg-color:        rgb(0,143,184);
+  --md-primary-fg-color:               rgb(0,127,163);  /* header background color */
+  --md-primary-bg-color:               rgb(255,255,255);  /* header font color */
+  --md-default-fg-color--light:        rgb(11,33,57,0.8);
+  --md-primary-fg-color--dark:         #012169;
+
+
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 213; 
 }
 
 :root {
@@ -23,7 +32,7 @@
   /* Primary color shades */
   --md-primary-fg-color:               rgb(0,143,184);
   --md-primary-fg-color--light:        rgb(162, 20, 155);
-  --md-primary-fg-color--dark:         rgb(11,33,57);
+  --md-primary-fg-color--dark:         #dbe2e9;
 
   --md-primary-bg-color:               rgb(255,255,255);
   --md-primary-bg-color--light:        rgb(255,255,255);
