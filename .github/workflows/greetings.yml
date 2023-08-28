@@ -13,3 +13,13 @@ jobs:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         issue-message: "Message that will be displayed on users' first issue"
         pr-message: "Message that will be displayed on users' first pull request"
+      run:
+        COMMENT="Thank you for submitting a pull request! We will get back to you soon."
+        echo $COMMENT
+         curl -s \
+          -X POST \
+          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/${{github.repository}}/issues/${{github.event.pull_request.number}}/comments \
+          -d "{\"body\":\"$COMMENT\"}"
+      
