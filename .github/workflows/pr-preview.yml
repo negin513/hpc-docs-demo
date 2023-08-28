@@ -27,9 +27,10 @@ jobs:
           restore-keys: |
             mkdocs-material-
 
-      - run: pip install -r requirements.txt 
-
-      - run: mkdocs build
+      - name: Build MkDocs website
+        run: |
+          pip install -r docs/requirements.txt
+          mkdocs build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
@@ -37,17 +38,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
           publish_branch: preview-${{ github.event.pull_request.number }}
-
-      - name: Deploy-preview
-        runs-on: ubuntu-20.04
-        steps:
-          - uses: actions/checkout@v3
-          - run: npm i && npm run build
-          - uses: rossjrw/pr-preview-action@v1
-            with:
-              source-dir: ./build/
-              action: deploy
-        
 
       - name: Comment PR
         uses: actions/github-script@v3
@@ -62,3 +52,33 @@ jobs:
               issue_number: context.issue.number,
               body: `Preview URL: ${url}`
             });
+
+
+
+
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+
+      # Don't expose secrets to any other process other than the `netlify` cli;
+      # don't risk rogue dependencies pulling our secrets
+      - name: Deploy Preview to Netlify
+        run: |
+          netlify deploy \
+            --dir="site" \
+            --alias="${GITHUB_REPOSITORY#*/}-${{ github.event.number }}"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_PREVIEW_APP_SITE_ID }}
+
+      - name: Add Netlify link PR comment
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const hostnameSuffix = "cal-itp-previews.netlify.app"
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Preview url: https://${context.repo.repo}-${{ github.event.number }}--${hostnameSuffix}`,
+            })
