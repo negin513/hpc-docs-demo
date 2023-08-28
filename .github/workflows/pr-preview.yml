@@ -3,6 +3,32 @@ name: preview
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+    inputs:
+      artifact_name:
+        description: 'Name of the artifact (zipped book) created by previous build step'
+        required: false
+        default: book-zip
+        type: string
+      destination_dir:
+        description: 'Path to publish to on GitHub Pages, relative to site root. We use this to deploy previews in a subdirectory.'
+        required: false
+        default: ''
+        type: string
+      is_preview:
+        description: 'Are we deploying a preview?'
+        required: false
+        default: 'false'
+        type: string
+      cname:
+        description: 'Custom domain name'
+        required: false
+        default: 'None'  # This is just a flag for whether to ignore this input
+        type: string
+      publish_dir:
+        description: 'Publish dir for the peaceiris/actions-gh-pages action'
+        required: false
+        default: '_build/html'
+        type: string
 
 permissions:
   contents: write
@@ -38,6 +64,31 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
           publish_branch: preview-${{ github.event.pull_request.number }}
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3.9.3
+        if: |
+          (github.ref == 'refs/heads/main'
+          && inputs.cname == 'None')
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ inputs.publish_dir }}
+          enable_jekyll: false
+          keep_files: true  # This preserves existing previews from open PRs
+          destination_dir: ${{ inputs.destination_dir }}
+
+      - name: Deploy to GitHub Pages with custom domain
+        uses: peaceiris/actions-gh-pages@v3.9.3
+        if: |
+          (github.ref == 'refs/heads/main'
+          && inputs.cname != 'None')
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ inputs.publish_dir }}
+          enable_jekyll: false
+          keep_files: true  # This preserves existing previews from open PRs
+          destination_dir: ${{ inputs.destination_dir }}
+          cname: ${{ inputs.cname }}
 
       - name: Comment PR
         uses: actions/github-script@v3
