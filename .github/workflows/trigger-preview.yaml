@@ -1,6 +1,8 @@
 name: preview-comment
 
 on:
+  pull_request:
+    types: [opened, synchronize, reopened]
   workflow_call:
     inputs:
       pull_request_number:
