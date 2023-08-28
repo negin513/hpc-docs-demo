@@ -29,16 +29,13 @@ jobs:
 
       - if: ${{ github.event.action == 'opened'}}
         run: gh repo create win11bot/${{ github.event.pull_request.number }} --public
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
       - name: Install NPM packages
         run: npm ci
 
       - name: Get translations
         run: npm run crowdin download
-        env:
-          api_token: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
 
       - name: Build
         run: npm run ghbuild
@@ -48,7 +45,6 @@ jobs:
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           external_repository: win11bot/${{ github.event.pull_request.number }}
 
