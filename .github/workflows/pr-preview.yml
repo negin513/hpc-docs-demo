@@ -68,8 +68,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3.9.3
         if: |
-          (github.ref == 'refs/heads/main'
-          && inputs.cname == 'None')
+          (github.ref == 'refs/heads/main')
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ${{ inputs.publish_dir }}
@@ -80,8 +79,7 @@ jobs:
       - name: Deploy to GitHub Pages with custom domain
         uses: peaceiris/actions-gh-pages@v3.9.3
         if: |
-          (github.ref == 'refs/heads/main'
-          && inputs.cname != 'None')
+          (github.ref == 'refs/heads/main')
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ${{ inputs.publish_dir }}
