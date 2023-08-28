@@ -78,15 +78,13 @@ jobs:
 
       - name: Deploy to GitHub Pages with custom domain
         uses: peaceiris/actions-gh-pages@v3.9.3
-        if: |
-          (github.ref == 'refs/heads/main')
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ inputs.publish_dir }}
+          publish_dir: ./site
           enable_jekyll: false
           keep_files: true  # This preserves existing previews from open PRs
-          destination_dir: ${{ inputs.destination_dir }}
-          cname: ${{ inputs.cname }}
+          destination_dir: ./site
+          cname: ${{github.event.pull_request.number}}
 
       - name: Comment PR
         uses: actions/github-script@v3
