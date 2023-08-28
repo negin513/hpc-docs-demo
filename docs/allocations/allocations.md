@@ -6,15 +6,17 @@ The Computational and Information Systems Laboratory (CISL) provides large-scale
 Applications are reviewed and time is allocated according to the needs of the projects and the availability of resources. Send questions about the following allocation opportunities to alloc@ucar.edu.
 
 !!! info
-The next university deadline for submitting Large Allocation Requests is March 13, 2023.
+	The next university deadline for submitting Large Allocation Requests is March 13, 2023.
 
 ## Page contents
 
-1. [University allocation opportunities](#university-allocation-opportunities)
-2. [Wyoming-NCAR Alliance](#wyoming-ncar-alliance)
-3. [NCAR lab allocation opportunities](#ncar-lab-allocation-opportunities)
+- [Allocations](#allocations)
+	- [Page contents](#page-contents)
+	- [University allocation opportunities](#university-allocation-opportunities)
+	- [Wyoming-NCAR Alliance](#wyoming-ncar-alliance)
+	- [NCAR lab allocation opportunities](#ncar-lab-allocation-opportunities)
 
-### University allocation opportunities
+## University allocation opportunities
 
 NCAR provides computing resources to the university community for investigations that are beyond the scope of university computing centers. The CISL HPC Advisory Panel (CHAP) accepts requests for large allocations of NCAR resources every six months, in March and September.
 
@@ -23,15 +25,18 @@ See University allocations for details.
 !!! info
 	**Eligibility.** In general, any U.S.-based researcher with an NSF award in the atmospheric sciences or computational science in support of the atmospheric sciences is eligible to apply for a University Community allocation. There are some limited opportunities for those without NSF awards.
 
-### Wyoming-NCAR Alliance
+## Wyoming-NCAR Alliance
 
 The NCAR-Wyoming Supercomputing Center represents a collaboration between NCAR and the University of Wyoming. As part of the Wyoming-NCAR Alliance (WNA), a portion of the Cheyenne system – about 160 million core-hours per year – is reserved for Wyoming-led projects and allocated by a University of Wyoming-managed process.
 
 Details of the Wyoming process are available at the [University of Wyoming web site](#).
 
-### NCAR lab allocation opportunities
+## NCAR lab allocation opportunities
 
 NCAR investigators have access to CISL resources through allocations to the NCAR labs and have opportunities to submit requests for larger-scale, project-oriented allocations. Proposals for larger-scale projects are reviewed twice per year to become NCAR Strategic Capability projects.
 
-See NCAR allocations for details.
+See [NCAR allocations](#) for more details.
+
+------
+Just a copy of https://arc.ucar.edu/knowledge_base/74317835. 
 

@@ -12,9 +12,9 @@ Once you are authorized to use NCAR compute and storage resources, and you have 
 
 These pages provide information on compiling your code, submitting jobs, and performing other common tasks on all NCAR resources unless otherwise noted:
 
-* Compiling Code
-* Starting and Managing Jobs with PBS
-* Managing Your Allocation
+* [Compiling Code](general/compiling.md)
+* [Starting and Managing Jobs with PBS](general/environment-module.md)
+* [Managing Your Allocation](general/managing-jobs.md)
 
 ---
 
@@ -30,7 +30,7 @@ These pages provide information on compiling your code, submitting jobs, and per
 
 ## Logging In 
 
-To log in, start your terminal or Secure Shell client and run an `ss`h` command as shown here:
+To log in, start your terminal or Secure Shell client and run an `ssh` command as shown here:
 
 ```
 ssh -X username@system_name.ucar.edu 

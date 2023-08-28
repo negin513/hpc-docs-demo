@@ -1,4 +1,4 @@
-# hpc-docs-demo
+# Demo of NCAR HPC Docs using `mkdown` 
 
 To view the built version is deployed [here](https://negin513.github.io/hpc-docs-demo/). 
 
@@ -11,6 +11,17 @@ docs/
     ...       # Other markdown pages, images and other files.
 ```
 
+
+## Project layout
+
+The layout of this repository: 
+
+```
+    mkdocs.yml    # The configuration file.
+    docs/
+        index.md  # The documentation homepage.
+        ...       # Other markdown pages, images and other files.
+```
 
 Similar to : 
 1. NERSC docs : https://docs.nersc.gov/

@@ -5,8 +5,8 @@ The `module` utility helps you identify software that is available on the system
 Some modules are loaded by default. To see which modules those are, run `module list` when you log in. Depending on the work you need to do, you can load additional modules or different modules, or you can create and save multiple customized environments as described below.
 
 !!! warning
-    Do not use personalized start files to load environment modules; it can cause conflicts.
-    Instead, set up any unique environments that you need as described in the Customized environments section below. Use that approach to create and save different environments for various aspects of your work – one for model runs and another for data analysis, for example.
+    Do not use personalized start files to load *environment modules*; it can cause conflicts.
+    Instead, set up any unique environments that you need as described in the customized environments section below. Use that approach to create and save different environments for various aspects of your work – one for model runs and another for data analysis, for example.
 
 
 ## Essential module commands
@@ -15,7 +15,7 @@ Following are descriptions of commonly used module commands.
 
 - `module av` – Show which modules are available for use with the currently loaded compiler.
 
-Screen capture of output from the `module av` command.
+![Screen capture of output from the `module av` command](https://kb.ucar.edu/download/attachments/embedded-page/RC/Environment%20modules/module_av_screen.png?api=v2)
 
 - `module help` – List options and subcommands for the module utility; or specify a modulefile by name for help with an individual module.
 
@@ -124,10 +124,9 @@ module save myenvironment
 The previously saved environment will be renamed automatically with the addition of a tilde (~). In the example just above, the previously saved environment would be renamed to `myenvironment~`.
 
 
-!!! tip  
-    ##Troubleshooting tips
+!!! tip "Troubleshooting tips"
 
-    Situation: You load a custom default module collection (for example, `module restore myenvironment`). 
+    **Situation:** You load a custom default module collection (for example, `module restore myenvironment`). 
     You receive a warning similar to this:
     ```
     Lmod Warning: The following modules have changed: pgi
