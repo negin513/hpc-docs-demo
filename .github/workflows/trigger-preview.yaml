@@ -1,97 +1,83 @@
-name: preview-comment
+name: PR Preview
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
-  workflow_call:
-    inputs:
-      pull_request_number:
-        description: 'Number of the Pull Request event that needs commenting'
-        required: true
-        type: string
-      sha:
-        description: 'SHA of the commit associated with this Pull Request'
-        required: true
-        type: string
-      site_name: 
-        description: 'Name of the website in comment'
-        required: false
-        default: "The Cookbook"
-        type: string
+  pull_request_target:
+    types: [opened, reopened, synchronize]
 
 jobs:
-  comment:
+  Build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash -l {0}
+
     steps:
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.BOT }}
+          message: |
+            ## Deploying with :page_facing_up: GitHub Pages
+
+            | **Commit:** | ${{ github.event.pull_request.head.sha }} |
+            | :-- | :-- |
+            | **Status:** | 🔨 Building |
+            | **Deploy Log:** | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
+
       - uses: actions/checkout@v3
-      - name: Fetch Repo Name
-        id: repo-name
-        run: echo "value=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_OUTPUT  # just the repo name, not owner
-
-      - name: Set message value
-        run: |
-          echo "comment_message=👋 Thanks for opening this PR! ${{ inputs.site_name }} will be automatically built with [GitHub Actions](https://github.com/features/actions). To see the status of your deployment, click below." >> $GITHUB_ENV
-
-      - name: Find preview comment
-        uses: peter-evans/find-comment@v2
-        id: fc
         with:
-          issue-number: '${{ inputs.pull_request_number }}'
-          comment-author: 'github-actions[bot]'
-          body-includes: '${{ env.comment_message }}'
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
 
-      - name: Create preview comment
-        if: |
-          github.event.workflow_run.conclusion != 'success'
-          && steps.fc.outputs.comment-id == ''
-        uses: peter-evans/create-or-update-comment@v3
+      - uses: actions/setup-node@v3
         with:
-          issue-number: ${{ inputs.pull_request_number }}
-          body: |
-            ${{ env.comment_message }}
-            🔍 Git commit SHA: ${{ inputs.sha }}
-            ✅ Deployment Preview URL: In Progress
+          node-version: 16
 
-      - name: Update preview comment
-        if: |
-          github.event.workflow_run.conclusion != 'success'
-          && steps.fc.outputs.comment-id != ''
-        uses: peter-evans/create-or-update-comment@v3
+      - if: ${{ github.event.action == 'opened'}}
+        run: gh repo create win11bot/${{ github.event.pull_request.number }} --public
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT }}
+
+      - name: Install NPM packages
+        run: npm ci
+
+      - name: Get translations
+        run: npm run crowdin download
+        env:
+          api_token: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+
+      - name: Build
+        run: npm run ghbuild
+        env:
+          REACT_APP_FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+          REACT_APP_FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+
+      - uses: peaceiris/actions-gh-pages@v3
         with:
-          comment-id: ${{ steps.fc.outputs.comment-id }}
-          edit-mode: replace
-          body: |
-            ${{ env.comment_message }}
-            🔍 Git commit SHA: ${{ inputs.sha }}
-            ✅ Deployment Preview URL: In Progress
+          personal_token: ${{ secrets.BOT }}
+          publish_dir: ./build
+          external_repository: win11bot/${{ github.event.pull_request.number }}
 
-      - name: Set preview URL
-        if: |
-          github.event.workflow_run.conclusion == 'success'
-          && steps.fc.outputs.comment-id != ''
-        id: preview-url
-        run: |
-          shopt -s nocasematch
-          if [[ ${{ steps.repo-name.outputs.value }} = ${{ github.repository_owner }}.github.io ]]
-          then
-            echo "url=https://${{ steps.repo-name.outputs.value }}/_preview/${{ inputs.pull_request_number }}" >> $GITHUB_OUTPUT
-          else
-            echo "url=https://${{ github.repository_owner }}.github.io/${{ steps.repo-name.outputs.value }}/_preview/${{ inputs.pull_request_number }}" >> $GITHUB_OUTPUT
-          fi
-          shopt -u nocasematch
+      - name: Sleep
+        run: sleep 1m
+        shell: bash
 
-      - name: Finalize preview comment
-        if: |
-          github.event.workflow_run.conclusion == 'success'
-          && steps.fc.outputs.comment-id != ''
-        uses: peter-evans/create-or-update-comment@v3
+      - name: Comment
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
-          comment-id: ${{ steps.fc.outputs.comment-id }}
-          edit-mode: replace
-          body: |
-            ${{ env.comment_message }}
-            🔍 Git commit SHA: ${{ inputs.sha }}
-            ✅ Deployment Preview URL: ${{ steps.preview-url.outputs.url }}
+          GITHUB_TOKEN: ${{ secrets.BOT }}
+          message: |
+            ## Deployed with :page_facing_up: GitHub Pages
+
+            | **Commit:** | ${{ github.event.pull_request.head.sha }} |
+            | :-- | :-- |
+            | **Status:** | ✅ Success |
+            | **Preview:** | https://pr-preview.win11react.com/${{ github.event.pull_request.number }} |
+            | **Deploy Log:** | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
+
+      - if: ${{ failure() }}
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.BOT }}
+          message: |
+            ## Deploying with :page_facing_up: GitHub Pages
+
+            | **Commit:** | ${{ github.event.pull_request.head.sha }} |
+            | :-- | :-- |
+            | **Status:** | ❌ Failure |
+            | **Deploy Log:** | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
