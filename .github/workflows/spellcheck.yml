@@ -1,13 +1,24 @@
-name: Spell Checking
+name: Markdown Lint Check
 
-on: [pull_request]
+on:
+  push:
+  pull_request:
+    branches:
+    - master
 
 jobs:
-  codespell:
-    name: Check spelling of all files with codespell
-    runs-on: ubuntu-latest
+  lint:
+    runs-on: ubuntu-22.04
+    env:
+      CI: true
     steps:
-      - uses: actions/checkout@v3
-      - uses: codespell-project/actions-codespell@v2
-        with:
-          ignore_words_file: codespell.txt
+    - name: Setup Action
+      uses: actions/checkout@v3
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 12.x
+    - name: Install dependencies
+      run: npm install
+    - name: Run linter
+      run: npm test
