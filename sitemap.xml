@@ -2,137 +2,137 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/contributing/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/getting-started/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/user-support/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/allocations/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/allocations/allocations/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/allocations/ncar_allocations/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/allocations/ncar_allocations/NCAR%2Ballocations/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/casper/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/casper/Compiling%2BGPU%2Bcode%2Bon%2BCasper%2Bnodes/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/casper/casper/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/cheyenne/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/cheyenne/Cheyenne%2Buse%2Bpolicies/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/cheyenne/Quick%2Bstart%2Bon%2BCheyenne/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/cheyenne/cheyenne/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/cheyenne/starting-cheyenne-jobs/Job-submission%2Bqueues%2Band%2Bcharges/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/cheyenne/starting-cheyenne-jobs/Managing%2Band%2Bmonitoring%2BPBS%2Bjobs/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/cheyenne/starting-cheyenne-jobs/cheyenne-job-script-examples/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/cheyenne/starting-cheyenne-jobs/cheyenne-job-script-examples/Cheyenne%2Bjob%2Bscript%2Bexamples/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/derecho/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/derecho/Batch%2Bjob%2Bscript%2Bexamples-Derecho/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/derecho/derecho/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/esds/faq/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/general/environment-modules/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/general/managing-jobs/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/nhug/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://negin513.github.io/hpc-docs-demo/nhug/upcoming-events/</loc>
-         <lastmod>2023-10-17</lastmod>
+         <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
